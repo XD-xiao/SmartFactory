@@ -1,0 +1,43 @@
+# --- Node / 前端 ---
+node_modules/
+dist/
+dist-ssr/
+coverage/
+*.local
+pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# --- Java / Maven ---
+target/
+build/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# --- 环境变量（禁止提交真实密钥） ---
+.env
+.env.*
+!.env.example
+
+# --- IDE / 编辑器 ---
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.factorypath
+*.sw?
+
+# --- 编辑器截图等临时产物 ---
+.trae-screenshots/
+
+# --- 系统文件 ---
+.DS_Store
+Thumbs.db
+*.log

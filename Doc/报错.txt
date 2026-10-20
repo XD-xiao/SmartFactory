@@ -1,0 +1,106 @@
+[2KSmartFactoryService  | [1;32mThis image is maintained by 1Panel.[0m
+[2KSmartFactoryService  | [1;33mFor support or issue discussion, please visit:[0m
+[2KSmartFactoryService  | [1;36mhttps://github.com/1Panel-dev/1Panel/discussions[0m
+[2KSmartFactoryService  | 
+[2KSmartFactoryService  |   .   ____          _            __ _ _
+[2KSmartFactoryService  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[2KSmartFactoryService  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[2KSmartFactoryService  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[2KSmartFactoryService  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+[2KSmartFactoryService  |  =========|_|==============|___/=/_/_/_/
+[2KSmartFactoryService  | 
+[2KSmartFactoryService  |  :: Spring Boot ::                (v4.0.7)
+[2KSmartFactoryService  | 
+[2KSmartFactoryService  | 2026-08-06T14:15:06.130+08:00  INFO 7 --- [smart-factory-service] [           main] c.e.s.SmartFactoryServiceApplication     : Starting SmartFactoryServiceApplication v0.0.1-SNAPSHOT using Java 17.0.19 with PID 7 (/app/SmartFactoryService-0.0.1-SNAPSHOT.jar started by root in /app)
+[2KSmartFactoryService  | 2026-08-06T14:15:06.139+08:00  INFO 7 --- [smart-factory-service] [           main] c.e.s.SmartFactoryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+[2KSmartFactoryService  | 2026-08-06T14:15:08.591+08:00  INFO 7 --- [smart-factory-service] [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+[2KSmartFactoryService  | 2026-08-06T14:15:08.610+08:00  INFO 7 --- [smart-factory-service] [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+[2KSmartFactoryService  | 2026-08-06T14:15:08.616+08:00  INFO 7 --- [smart-factory-service] [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+[2KSmartFactoryService  | 2026-08-06T14:15:09.899+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+[2KSmartFactoryService  | 2026-08-06T14:15:09.924+08:00  INFO 7 --- [smart-factory-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[2KSmartFactoryService  | 2026-08-06T14:15:09.925+08:00  INFO 7 --- [smart-factory-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+[2KSmartFactoryService  | 2026-08-06T14:15:09.984+08:00  INFO 7 --- [smart-factory-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3708 ms
+[2KSmartFactoryService  |  _ _   |_  _ _|_. ___ _ |    _ 
+[2KSmartFactoryService  | | | |\/|_)(_| | |_\  |_)||_|_\ 
+[2KSmartFactoryService  |      /               |         
+[2KSmartFactoryService  |                         3.5.14 
+[2KSmartFactoryService  | 2026-08-06T14:15:14.348+08:00  INFO 7 --- [smart-factory-service] [           main] m.e.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext@32c8e539
+[2KSmartFactoryService  | 2026-08-06T14:15:14.790+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+[2KSmartFactoryService  | 2026-08-06T14:15:14.959+08:00  INFO 7 --- [smart-factory-service] [           main] c.e.s.mqtt.MqttHandlerMethodRegistry     : Registered 5 MQTT handler methods for topics: [order/service/switch, order/service/sync, eduBox/server/examId/#, eduBox/server/data/#, eduBox/device/examConfig]
+[2KSmartFactoryService  | 2026-08-06T14:15:15.023+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+[2KSmartFactoryService  | 2026-08-06T14:15:15.024+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.i.channel.PublishSubscribeChannel    : Channel 'smart-factory-service.errorChannel' has 1 subscriber(s).
+[2KSmartFactoryService  | 2026-08-06T14:15:15.025+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+[2KSmartFactoryService  | 2026-08-06T14:15:15.025+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {message-handler:messageHandler.serviceActivator} as a subscriber to the 'messageInboundChannel' channel
+[2KSmartFactoryService  | 2026-08-06T14:15:15.025+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.integration.channel.DirectChannel    : Channel 'smart-factory-service.messageInboundChannel' has 1 subscriber(s).
+[2KSmartFactoryService  | 2026-08-06T14:15:15.026+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean 'messageHandler.serviceActivator'
+[2KSmartFactoryService  | 2026-08-06T14:15:15.026+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {message-handler:mqttOutboundMessageHandler.serviceActivator} as a subscriber to the 'mqttOutboundChannel' channel
+[2KSmartFactoryService  | 2026-08-06T14:15:15.026+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.integration.channel.DirectChannel    : Channel 'smart-factory-service.mqttOutboundChannel' has 1 subscriber(s).
+[2KSmartFactoryService  | 2026-08-06T14:15:15.027+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean 'mqttOutboundMessageHandler.serviceActivator'
+[2KSmartFactoryService  | 2026-08-06T14:15:15.028+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+[2KSmartFactoryService  | 2026-08-06T14:15:15.029+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7ee3a2ed]]
+[2KSmartFactoryService  | 2026-08-06T14:15:15.031+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+[2KSmartFactoryService  | 2026-08-06T14:15:15.032+08:00  INFO 7 --- [smart-factory-service] [           main] ProxyFactoryBean$MethodInvocationGateway : started bean 'mqttGateway#sendMsgToMqtt(String, String)'
+[2KSmartFactoryService  | 2026-08-06T14:15:15.033+08:00  INFO 7 --- [smart-factory-service] [           main] ProxyFactoryBean$MethodInvocationGateway : started bean 'mqttGateway#sendMsgToMqtt(String, int, String)'
+[2KSmartFactoryService  | 2026-08-06T14:15:15.033+08:00  INFO 7 --- [smart-factory-service] [           main] .s.i.g.AnnotationGatewayProxyFactoryBean : started bean 'mqttGateway'; defined in: 'URL [jar:nested:/app/SmartFactoryService-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/com/example/smartfactoryservice/gateway/MqttGateway.class]'; from source: 'URL [jar:nested:/app/SmartFactoryService-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/com/example/smartfactoryservice/gateway/MqttGateway.class]'
+[2KSmartFactoryService  | 2026-08-06T14:15:15.386+08:00  INFO 7 --- [smart-factory-service] [           main] .m.i.MqttPahoMessageDrivenChannelAdapter : started bean 'messageProducer'; defined in: 'class path resource [com/example/smartfactoryservice/Config/MqttInboundConfiguration.class]'; from source: 'public org.springframework.integration.core.MessageProducer com.example.smartfactoryservice.Config.MqttInboundConfiguration.messageProducer()'
+[2KSmartFactoryService  | 2026-08-06T14:15:15.408+08:00  INFO 7 --- [smart-factory-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+[2KSmartFactoryService  | 2026-08-06T14:15:15.439+08:00  INFO 7 --- [smart-factory-service] [           main] c.e.s.SmartFactoryServiceApplication     : Started SmartFactoryServiceApplication in 10.381 seconds (process running for 11.452)
+[2KSmartFactoryService  | 2026-08-06T14:15:27.437+08:00  INFO 7 --- [smart-factory-service] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2KSmartFactoryService  | 2026-08-06T14:15:27.438+08:00  INFO 7 --- [smart-factory-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[2KSmartFactoryService  | 2026-08-06T14:15:27.443+08:00  INFO 7 --- [smart-factory-service] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+[2KSmartFactoryService  | 2026-08-06T14:15:27.809+08:00  INFO 7 --- [smart-factory-service] [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : SmartFactoryHikariCP - Starting...
+[2KSmartFactoryService  | 2026-08-06T14:15:28.132+08:00  INFO 7 --- [smart-factory-service] [nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : SmartFactoryHikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@2166ec05
+[2KSmartFactoryService  | 2026-08-06T14:15:28.139+08:00  INFO 7 --- [smart-factory-service] [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : SmartFactoryHikariCP - Start completed.
+[2KSmartFactoryService  | {"source":2,"sensor":25,"config":{"min_threshold":40,"mid_threshold":50,"max_threshold":60}}
+[2KSmartFactoryService  | 2026-08-06T14:15:39.072+08:00 ERROR 7 --- [smart-factory-service] [7f-bce0bb4b96dd] .m.i.MqttPahoMessageDrivenChannelAdapter : Unhandled exception for GenericMessage [payload={"source":2,"sensor":25,"config":{"min_threshold":40,"mid_threshold":50,"max_threshold":60}}, headers={mqtt_receivedRetained=false, mqtt_id=0, mqtt_duplicate=false, id=6c4e80d8-b9fa-f546-4443-df286ff46895, mqtt_receivedTopic=eduBox/device/examConfig, mqtt_receivedQos=0, timestamp=1785996939061}]
+[2KSmartFactoryService  | 
+[2KSmartFactoryService  | org.springframework.messaging.MessageHandlingException: error occurred in message handler [bean 'messageHandler.serviceActivator.handler' for component 'messageHandler.serviceActivator'], failedMessage=GenericMessage [payload={"source":2,"sensor":25,"config":{"min_threshold":40,"mid_threshold":50,"max_threshold":60}}, headers={mqtt_receivedRetained=false, mqtt_id=0, mqtt_duplicate=false, id=6c4e80d8-b9fa-f546-4443-df286ff46895, mqtt_receivedTopic=eduBox/device/examConfig, mqtt_receivedQos=0, timestamp=1785996939061}]
+[2KSmartFactoryService  | 	at org.springframework.integration.support.utils.IntegrationUtils.wrapInHandlingExceptionIfNecessary(IntegrationUtils.java:190) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.handler.AbstractMessageHandler.doHandleMessage(AbstractMessageHandler.java:105) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.handler.AbstractMessageHandler.handleMessage(AbstractMessageHandler.java:70) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.dispatcher.AbstractDispatcher.tryOptimizedDispatch(AbstractDispatcher.java:133) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.dispatcher.UnicastingDispatcher.doDispatch(UnicastingDispatcher.java:150) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.dispatcher.UnicastingDispatcher.dispatch(UnicastingDispatcher.java:123) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.channel.AbstractSubscribableChannel.doSend(AbstractSubscribableChannel.java:72) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.channel.AbstractMessageChannel.sendInternal(AbstractMessageChannel.java:438) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:341) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:310) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:187) ~[spring-messaging-7.0.8.jar!/:7.0.8]
+[2KSmartFactoryService  | 	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:166) ~[spring-messaging-7.0.8.jar!/:7.0.8]
+[2KSmartFactoryService  | 	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:47) ~[spring-messaging-7.0.8.jar!/:7.0.8]
+[2KSmartFactoryService  | 	at org.springframework.messaging.core.AbstractMessageSendingTemplate.send(AbstractMessageSendingTemplate.java:108) ~[spring-messaging-7.0.8.jar!/:7.0.8]
+[2KSmartFactoryService  | 	at org.springframework.integration.endpoint.MessageProducerSupport.sendMessageWithTracking(MessageProducerSupport.java:278) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.endpoint.MessageProducerSupport.sendMessage(MessageProducerSupport.java:267) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.mqtt.inbound.MqttPahoMessageDrivenChannelAdapter.messageArrived(MqttPahoMessageDrivenChannelAdapter.java:379) ~[spring-integration-mqtt-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.eclipse.paho.client.mqttv3.internal.CommsCallback.deliverMessage(CommsCallback.java:511) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+[2KSmartFactoryService  | 	at org.eclipse.paho.client.mqttv3.internal.CommsCallback.handleMessage(CommsCallback.java:417) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+[2KSmartFactoryService  | 	at org.eclipse.paho.client.mqttv3.internal.CommsCallback.run(CommsCallback.java:214) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+[2KSmartFactoryService  | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+[2KSmartFactoryService  | Caused by: java.lang.reflect.InvocationTargetException
+[2KSmartFactoryService  | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+[2KSmartFactoryService  | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+[2KSmartFactoryService  | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+[2KSmartFactoryService  | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+[2KSmartFactoryService  | 	at com.example.smartfactoryservice.mqtt.MqttMessageRouter.route(MqttMessageRouter.java:47) ~[!/:0.0.1-SNAPSHOT]
+[2KSmartFactoryService  | 	at org.springframework.integration.handler.ReplyProducingMessageHandlerWrapper.handleRequestMessage(ReplyProducingMessageHandlerWrapper.java:61) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.handler.AbstractReplyProducingMessageHandler.handleMessageInternal(AbstractReplyProducingMessageHandler.java:146) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	at org.springframework.integration.handler.AbstractMessageHandler.doHandleMessage(AbstractMessageHandler.java:102) ~[spring-integration-core-7.0.5.jar!/:7.0.5]
+[2KSmartFactoryService  | 	... 19 common frames omitted
+[2KSmartFactoryService  | Caused by: org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+[2KSmartFactoryService  | 	at com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(BaseMapper.java:343) ~[mybatis-plus-core-3.5.14.jar!/:3.5.14]
+[2KSmartFactoryService  | 	at java.base/java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:732) ~[na:na]
+[2KSmartFactoryService  | 	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$DefaultMethodInvoker.invoke(MybatisMapperProxy.java:172) ~[mybatis-plus-core-3.5.14.jar!/:3.5.14]
+[2KSmartFactoryService  | 	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:93) ~[mybatis-plus-core-3.5.14.jar!/:3.5.14]
+[2KSmartFactoryService  | 	at jdk.proxy2/jdk.proxy2.$Proxy99.selectOne(Unknown Source) ~[na:na]
+[2KSmartFactoryService  | 	at com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(BaseMapper.java:326) ~[mybatis-plus-core-3.5.14.jar!/:3.5.14]
+[2KSmartFactoryService  | 	at java.base/java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:732) ~[na:na]
+[2KSmartFactoryService  | 	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$DefaultMethodInvoker.invoke(MybatisMapperProxy.java:182) ~[mybatis-plus-core-3.5.14.jar!/:3.5.14]
+[2KSmartFactoryService  | 	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:93) ~[mybatis-plus-core-3.5.14.jar!/:3.5.14]
+[2KSmartFactoryService  | 	at jdk.proxy2/jdk.proxy2.$Proxy99.selectOne(Unknown Source) ~[na:na]
+[2KSmartFactoryService  | 	at com.example.smartfactoryservice.Service.EduBoxModule.impl.SensorConfigServiceImpl.updateThresholdFromMqtt(SensorConfigServiceImpl.java:136) ~[!/:0.0.1-SNAPSHOT]
+[2KSmartFactoryService  | 	at com.example.smartfactoryservice.Controller.DeviceModule.SensorMqttController.getSensorThresholdConfig(SensorMqttController.java:120) ~[!/:0.0.1-SNAPSHOT]
+[2KSmartFactoryService  | 	... 27 common frames omitted
+[2KSmartFactoryService  | 
+[2KSmartFactoryService  | 2026-08-06T14:15:39.081+08:00 ERROR 7 --- [smart-factory-service] [7f-bce0bb4b96dd] .m.i.MqttPahoMessageDrivenChannelAdapter : Lost connection: MqttException
+[2KSmartFactoryService  | 2026-08-06T14:16:14.976+08:00  INFO 7 --- [smart-factory-service] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[unknown], outboundChannel[unknown], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+[2KSmartFactoryService  | 2026-08-06T14:22:48.078+08:00  WARN 7 --- [smart-factory-service] [io-8080-exec-10] c.e.s.Exception.GlobalExceptionHandler   : 静态资源未找到: api/pm/accessControl

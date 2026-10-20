@@ -1,0 +1,143 @@
+# Web 服务基础配置
+server:
+  # Spring Boot 服务监听端口
+  port: 8080
+  servlet:
+    # 应用访问根路径，"/" 表示直接以根路径访问
+    context-path: /
+
+# Spring 相关通用配置
+spring:
+  application:
+    # 应用名称，可用于日志、监控和服务标识
+    name: smart-factory-service
+  devtools:
+    restart:
+      enabled: false
+  datasource:
+    # MySQL 连接地址（可通过环境变量 DB_URL 覆盖，默认本地）
+    url: ${DB_URL:jdbc:mysql://localhost:3306/smartfactorydb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    # 数据库用户名
+    username: ${DB_USERNAME:root}
+    # 数据库密码（通过环境变量 DB_PASSWORD 提供，请勿提交明文密码）
+    password: ${DB_PASSWORD:}
+    # MySQL 8+ 推荐驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # 连接池名称，便于排查问题
+      pool-name: SmartFactoryHikariCP
+      # 最小空闲连接数
+      minimum-idle: 5
+      # 最大连接数
+      maximum-pool-size: 20
+      # 空闲连接最大存活时间，单位毫秒
+      idle-timeout: 30000
+      # 获取连接超时时间，单位毫秒
+      connection-timeout: 30000
+      # 连接最大生命周期，单位毫秒
+      max-lifetime: 1800000
+      # 连接校验超时时间，单位毫秒
+      validation-timeout: 5000
+      # 连接有效性检测 SQL
+      connection-test-query: SELECT 1
+  jackson:
+    # JSON 序列化默认时区
+    time-zone: Asia/Shanghai
+    # 日期时间默认输出格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 忽略值为 null 的字段，减少无效返回
+    default-property-inclusion: non_null
+  cache:
+    # 使用 Spring 内置简单缓存，适合开发阶段或轻量场景
+    type: simple
+  servlet:
+    multipart:
+      max-file-size: 10MB     # 单个文件最大 10MB
+      max-request-size: 20MB  # 单次请求最大 20MB（多个文件总和）
+    encoding:
+      # 请求与响应默认字符集
+      charset: UTF-8
+      # 启用编码过滤
+      enabled: true
+      # 强制请求和响应都使用 UTF-8
+      force: true
+  mqtt:
+    # 本地未启动 MQTT Broker 时可关闭，避免应用启动阶段主动连接报错
+    enabled: ${MQTT_ENABLED:false}
+    username: ${MQTT_USERNAME:}
+    password: ${MQTT_PASSWORD:}
+    url: ${MQTT_URL:tcp://localhost:1883}
+    subClientId: sub_clientId_${random.uuid}
+    pubClientId: pub_clientId_${random.uuid}
+  mail:
+    # SMTP 服务器地址（网易 163 邮箱）
+    host: smtp.163.com
+    # SMTP 端口（465=SSL）
+    port: 465
+    # 发件人邮箱地址（通过环境变量 MAIL_USERNAME 提供）
+    username: ${MAIL_USERNAME:}
+    # 邮箱授权码（通过环境变量 MAIL_PASSWORD 提供，非登录密码）
+    password: ${MAIL_PASSWORD:}
+    # 启用 SMTP 认证与 SSL
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  # Mapper XML 扫描路径
+  mapper-locations: classpath*:/mapper/**/*.xml
+  # 实体类别名扫描包
+  type-aliases-package: com.example.smartfactoryservice
+  global-config:
+    db-config:
+      # 主键生成策略：雪花算法等分布式 ID
+      id-type: assign_id
+      # 数据库表字段使用下划线风格
+      table-underline: true
+
+# 日志级别配置
+logging:
+  level:
+    # 全局默认日志级别
+    root: info
+    # 当前项目业务包日志级别
+    com.example.smartfactoryservice: info
+    # 事务管理日志，便于排查数据库事务问题
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+    # MyBatis-Plus 相关日志级别
+    com.baomidou.mybatisplus: info
+
+# DeepSeek AI 配置
+deepseek:
+  # DeepSeek API Key（通过环境变量 DEEPSEEK_API_KEY 提供，需在 DeepSeek 平台申请）
+  api-key: ${DEEPSEEK_API_KEY:}
+  # API 基础地址
+  base-url: https://api.deepseek.com
+  # 模型名称（DeepSeek-V4-Pro 使用 deepseek-chat）
+  model-name: deepseek-chat
+  # 请求超时时间（秒）
+  timeout: 60
+  # 最大输出 Token 数
+  max-tokens: 4096
+  # 生成温度（0-2，越高越随机）
+  temperature: 0.7
+  # Agent 定时检测调度器开关（true=启用, false=禁用，调试时建议关闭）
+  scheduler-enabled: false
+
+# 超级管理员账号（通过环境变量覆盖，禁止硬编码密码）
+admin:
+  employee-number: ${ADMIN_EMPLOYEE_NUMBER:adminadmin}
+  password: ${ADMIN_PASSWORD:}
+
+# Spring Boot Actuator 监控端点配置
+management:
+  endpoints:
+    web:
+      exposure:
+        # 对外暴露的监控端点
+        include: health,info
+  endpoint:
+    health:
+      # 健康检查详情展示策略
+      show-details: when_authorized
